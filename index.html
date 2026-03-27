@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebGPU Host</title>
+    <meta
+      name="description"
+      content="Trang HTML5 va JavaScript nhung video YouTube voi nen WebGPU dong."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="gpu-canvas" class="gpu-layer" aria-hidden="true"></canvas>
+    <div class="noise-layer" aria-hidden="true"></div>
+
+    <main class="page-shell">
+      <section class="intro-panel">
+        <div class="intro-copy">
+          <p class="eyebrow">WebGPU by HTML5/JS/CSS</p>
+          <h1>YouTube WebGPU Host</h1>
+
+          <form id="video-form" class="video-form">
+            <label class="sr-only" for="youtube-url">Link YouTube</label>
+            <input
+              id="youtube-url"
+              name="youtube-url"
+              type="text"
+              inputmode="url"
+              spellcheck="false"
+              value="https://www.youtube.com/watch?v=MD2xgAvyhpo"
+              placeholder="Paste YouTube URL"
+            />
+            <button type="submit">Load</button>
+          </form>
+
+          <div class="status-row">
+            <span id="gpu-status" class="pill" data-tone="neutral">Dang kiem tra WebGPU...</span>
+            <a
+              id="youtube-link"
+              class="text-link"
+              href="https://www.youtube.com/watch?v=MD2xgAvyhpo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open on YouTube
+            </a>
+          </div>
+
+          <p id="form-note" class="form-note"></p>
+        </div>
+
+        <article class="player-card">
+          <div class="player-frame">
+            <iframe
+              id="player"
+              title="YouTube video player"
+              src="https://www.youtube.com/embed/MD2xgAvyhpo?rel=0&modestbranding=1&playsinline=1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="player-meta">
+            <p class="meta-label">Embedded</p>
+            <h2 id="video-title">Video ID: MD2xgAvyhpo</h2>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
